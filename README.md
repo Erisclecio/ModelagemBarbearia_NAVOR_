@@ -1,7 +1,4 @@
 ## 1. Identificação da equipe
-
-**RGM's Clóvis:**
-
 - Kauan Ribeiro Perez de Toledo  
   RGM: 04932791-7
 - Oséias Silva Barbosa  

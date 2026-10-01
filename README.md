@@ -1,3 +1,30 @@
+## 1. Identificação da equipe
+
+**RGM's Clóvis:**
+
+- Kauan Ribeiro Perez de Toledo  
+  RGM: 04932791-7
+- Oséias Silva Barbosa  
+  RGM: 04934913-9
+- Guilherme Elder da Silva  
+  RGM: 04880198-4
+- Matheus Ferreira Nunes  
+  RGM: 04879632-8
+- Guilherme Carlos da Silva  
+  RGM: 04947745-5
+- Mariana Morato Santos  
+  RGM: 04916587-9
+- Pamela de Moraes Ezequiel  
+  RGM: 04930256-6
+- Daniel Pedro Alves de Almeida Nunes  
+  RGM: 04879452-0
+- Erisclécio Araujo dos Santos  
+  RGM: 04884322-9
+- Enzo Camargo  
+  RGM: 05006394-4
+- Gabriel Rodrigues Queiroz  
+  RGM: 05011595-2
+
 **Razão Social:** NAVØR Barbearia Ltda.  
 **Nome Fantasia:** NAVØR Barbearia  
 **CNPJ:** WR.JV6.ZTE/0001-02 ***(Inscrição fictícia gerada pelo Simulador Nacional de CNPJ da Receita Federal, utilizada exclusivamente para fins acadêmicos e de desenvolvimento do sistema.)***  
@@ -14,7 +41,7 @@ Total: 6 funcionários.
 
 ![Identidade visual da NAVØR Barbearia: logotipo, fachada, salão, produtos e serviços](imagens/navor-identidade-visual.png)
 
-## 1. Caracterização da empresa
+## 2. Caracterização da empresa
 
 - **Qual é o nome da empresa?** NAVØR Barbearia Ltda.
 - **Qual é o segmento?** A NAVØR Barbearia é uma microempresa do segmento de beleza, estética e cuidados pessoais, especializada em serviços voltados predominantemente ao público masculino.
@@ -37,11 +64,11 @@ Atualmente, a administração da empresa funciona quase 100% de forma manual. Os
 
   Também são importantes os registros de horários, valores praticados, formas de pagamento, movimentações de estoque e histórico de atendimentos dos clientes, pois essas informações permitem acompanhar a operação e apoiar o controle financeiro e administrativo da empresa.
 
-## 2. Justificativa da escolha do negócio
+## 3. Justificativa da escolha do negócio
 
 Escolhemos uma barbearia porque apesar de ser uma pequena empresa, ela possui diferentes processos que precisam estar integrados, como cadastro de clientes, agendamentos, atendimentos, serviços, funcionários, vendas, estoque, compras, fornecedores, pagamentos, comissões e controle financeiro. Um atendimento realizado, por exemplo, pode envolver um cliente, um profissional e vários tipos de serviços, além de gerar um pagamento, comissão para o profissional e movimentação de produtos no estoque, e atualmente essas informações não estão centralizadas. Isso nos permite desenvolver uma modelagem de dados completa e propor um ERP que centralize e relacione essas informações, reduza controles manuais e facilite tanto a operação quanto a gestão do negócio.
 
-## 3. Principais processos de negócio
+## 4. Principais processos de negócio
 
 Os principais processos identificados são:
 
@@ -101,7 +128,7 @@ Os principais processos identificados são:
 **Informações geradas:** Profissional, serviço realizado, valor do serviço e valor da comissão.  
 **Resultado:** Comissão registrada para controle e apuração.
 
-## 4. Problemas e necessidades identificados
+## 5. Problemas e necessidades identificados
 
 **a. Onde existe retrabalho?**  
 Existe retrabalho principalmente no agendamento, controle financeiro, estoque e cadastro de clientes, pois as informações são registradas e consultadas manualmente em diferentes meios, como cadernos, planilhas e mensagens de WhatsApp. Em algumas situações, uma mesma informação precisa ser conferida ou registrada novamente para realizar o fechamento do caixa, calcular comissões ou verificar a disponibilidade dos profissionais.  
@@ -168,7 +195,7 @@ Isso dificulta obter rapidamente informações como faturamento do período, qua
 | Falta de integração entre as áreas da empresa | A mesma informação precisa ser consultada ou registrada em diferentes locais |
 | Falta de relatórios gerenciais automáticos | Dificuldade para acompanhar faturamento, atendimentos, estoque e desempenho dos profissionais |
 
-## 5. Etapa 5 — Requisitos funcionais
+## 6. Etapa 5 — Requisitos funcionais
 
 | Código | Nome | Descrição | Objetivo | Responsáveis |
 |---|---|---|---|---|
@@ -202,7 +229,7 @@ Isso dificulta obter rapidamente informações como faturamento do período, qua
 | RF28 | Controle de usuários e permissões | O sistema deverá permitir o cadastro de usuários do sistema e a definição de perfis de acesso, restringindo funcionalidades conforme o perfil. | Impedir o uso indevido de funcionalidades sensíveis por pessoas sem autorização. | Administrador |
 | RF29 | Exportação de relatórios | O sistema deverá permitir exportar relatórios gerenciais para formato de planilha. | Manter a possibilidade de análise externa já identificada no levantamento. | Administrador |
 
-## 6. Etapa 6 — Requisitos não funcionais
+## 7. Etapa 6 — Requisitos não funcionais
 
 | Código | Categoria | Descrição | Justificativa |
 |---|---|---|---|
@@ -219,7 +246,7 @@ Isso dificulta obter rapidamente informações como faturamento do período, qua
 | RNF11 | Auditoria | O sistema deverá registrar quem realizou, quando e qual operação foi feita em alterações de preços, cancelamentos, ajustes manuais de estoque, cadastros de fornecedores, compras e confirmações de recebimento. | Permite identificar os responsáveis e investigar divergências nos atendimentos, nas compras e no estoque. |
 | RNF12 | Privacidade dos dados pessoais | O sistema deverá tratar os dados pessoais dos clientes conforme a legislação de proteção de dados vigente, restringindo o acesso a informações de contato apenas a usuários autorizados. | Os dados de clientes envolvem informações de contato pessoal que exigem tratamento adequado. |
 
-## 7. Etapa 7 — Regras de negócio
+## 8. Etapa 7 — Regras de negócio
 
 | Código | Regra de negócio | Explicação |
 |---|---|---|
@@ -248,7 +275,7 @@ Isso dificulta obter rapidamente informações como faturamento do período, qua
 | RN23 | Uma mesma pessoa pode possuir simultaneamente os papéis de cliente e funcionário no sistema. | Permite representar situações em que um funcionário também utiliza os serviços da empresa como cliente, mantendo as informações específicas de cada papel. |
 | RN24 | Um atendimento ou uma venda pode utilizar uma ou mais formas de pagamento, desde que a soma dos valores registrados corresponda ao valor total devido. | Permite dividir um pagamento entre diferentes formas, mantendo a consistência do valor recebido. |
 
-## 8. Etapa 8 — Restrições e políticas organizacionais
+## 9. Etapa 8 — Restrições e políticas organizacionais
 
 | Código | Nome | Descrição | Quem deve respeitar | Consequência |
 |---|---|---|---|---|

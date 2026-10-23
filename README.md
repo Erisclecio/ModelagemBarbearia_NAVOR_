@@ -22,7 +22,6 @@ O trabalho reúne o levantamento dos processos da empresa, requisitos e regras d
 | Guilherme Elder da Silva | 04880198-4 |
 | Matheus Ferreira Nunes | 04879632-8 |
 | Guilherme Carlos da Silva | 04947745-5 |
-| Mariana Morato Santos | 04916587-9 |
 | Pamela de Moraes Ezequiel | 04930256-6 |
 | Daniel Pedro Alves de Almeida Nunes | 04879452-0 |
 | Erisclécio Araujo dos Santos | 04884322-9 |

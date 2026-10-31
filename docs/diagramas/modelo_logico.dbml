@@ -2,15 +2,25 @@ Table PESSOA {
   cpf CHAR(11) [pk, not null]
   id_pessoa int [unique, not null]
   nome VARCHAR(80)
-  telefone CHAR(11)
   email VARCHAR(70)
   data_cadastro datetime
 }
 
+Table PESSOA_TELEFONE{
+  id_pessoa int [not null]
+  telefone char(11) [not null]
+
+indexes {
+  (id_pessoa, telefone) [pk]
+}
+}
 Table CLIENTE {
   id_cliente int [pk]
   id_pessoa int [unique, not null]
 }
+
+// possui_telefone
+Ref: PESSOA_TELEFONE.id_pessoa > PESSOA.id_pessoa
 
 // assume
 Ref: PESSOA.id_pessoa -? CLIENTE.id_pessoa
@@ -116,11 +126,22 @@ Table FORNECEDOR {
   id_fornecedor int [pk]
   tipo_documento documento_fornecedor
   numero_documento varchar(14)
-  nome varchar(60)
-  telefone char(11)
-  email varchar(80)
+  nome varchar(120)
+  email varchar(120)
   status status_fornecedor
 }
+
+Table FORNECEDOR_TELEFONE {
+  id_fornecedor int [not null]
+  telefone char(11) [not null]
+
+  indexes {
+    (id_fornecedor, telefone) [pk]
+  }
+}
+
+// possui_telefone
+Ref: FORNECEDOR_TELEFONE.id_fornecedor > FORNECEDOR.id_fornecedor
 
 Enum status_agendamento{
   PENDENTE
@@ -510,7 +531,6 @@ Table CONCILIACAO_FINANCEIRA {
   valor_conferido_conciliacao decimal(10,2)
   situacao_conciliacao situacao_conciliacao
   observacao_divergencia text
-  diferenca_valor decimal(10,2)
 }
 
 // e_submetida_a

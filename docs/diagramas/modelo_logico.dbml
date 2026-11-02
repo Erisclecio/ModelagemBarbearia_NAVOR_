@@ -1,8 +1,8 @@
 Table PESSOA {
   cpf CHAR(11) [pk, not null]
   id_pessoa int [unique, not null]
-  nome VARCHAR(80)
-  email VARCHAR(70)
+  nome VARCHAR(80) [not null]
+  email VARCHAR(70) [not null]
   data_cadastro datetime
 }
 

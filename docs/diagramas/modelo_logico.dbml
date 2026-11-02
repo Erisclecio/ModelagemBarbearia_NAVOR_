@@ -78,8 +78,8 @@ Table PERFIL_ACESSO {
 
 Table PREFERENCIA {
   id_cliente int [pk]
-  horario_preferido time
-  corte_preferido varchar(15)
+  horario_preferido time [not null]
+  corte_preferido varchar(15) [not null]
   id_funcionario_preferencial int
   observacao_preferencia text
 }

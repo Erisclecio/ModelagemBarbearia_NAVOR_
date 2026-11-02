@@ -71,7 +71,7 @@ Enum situacao_perfil_enum{
 }
 Table PERFIL_ACESSO {
   id_perfil int [pk]
-  nome_perfil varchar(20)
+  nome_perfil varchar(20) [unique]
   descricao_perfil text
   situacao_perfil situacao_perfil_enum
 }
@@ -125,7 +125,7 @@ Enum documento_fornecedor {
 Table FORNECEDOR {
   id_fornecedor int [pk]
   tipo_documento documento_fornecedor
-  numero_documento varchar(14)
+  numero_documento varchar(14) [unique]
   nome varchar(120)
   email varchar(120)
   status status_fornecedor
@@ -235,12 +235,12 @@ Enum status_forma_pagamento{
 }
 Table FORMA_PAGAMENTO {
   id_forma_pagamento int [pk]
-  nome varchar(30)
+  nome varchar(30) [unique]
   situacao status_forma_pagamento
 }
 
 Enum tipos_movimentacao {
-  ENTRADA
+  ENTRADA 
   SAIDA
 }
 Enum origens_movimentacao {

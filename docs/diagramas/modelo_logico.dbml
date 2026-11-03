@@ -71,9 +71,9 @@ Enum situacao_perfil_enum{
 }
 Table PERFIL_ACESSO {
   id_perfil int [pk]
-  nome_perfil varchar(20) [unique]
-  descricao_perfil text
-  situacao_perfil situacao_perfil_enum
+  nome_perfil varchar(20) [unique, not null]
+  descricao_perfil text [not null]
+  situacao_perfil situacao_perfil_enum [not null]
 }
 
 Table PREFERENCIA {
@@ -94,10 +94,10 @@ Enum situacao_servico{
 }
 Table SERVICO {
   id_servico int [pk]
-  nome VARCHAR(60)
-  duracao_estimada int 
-  preco_atual decimal(10,2)
-  situacao situacao_servico
+  nome VARCHAR(60) [not null]
+  duracao_estimada int [not null]
+  preco_atual decimal(10,2) [not null]
+  situacao situacao_servico [not null]
 }
 
 Enum situacao_produto{

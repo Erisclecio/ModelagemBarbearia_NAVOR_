@@ -3,7 +3,7 @@ Table PESSOA {
   id_pessoa int [unique, not null]
   nome VARCHAR(80) [not null]
   email VARCHAR(70) [not null]
-  data_cadastro datetime
+  data_cadastro datetime [not null]
 }
 
 Table PESSOA_TELEFONE{
@@ -34,10 +34,10 @@ Enum situacao_funcionario {
 Table FUNCIONARIO {
   id_funcionario int [pk]
   id_pessoa int [unique, not null]
-  funcao VARCHAR(40)
-  presta_servico boolean
-  situacao situacao_funcionario
-  comissionado bool
+  funcao VARCHAR(40) [not null]
+  presta_servico boolean [not null]
+  situacao situacao_funcionario [not null]
+  comissionado bool [not null]
 }
 
 
@@ -154,9 +154,9 @@ Table AGENDAMENTO {
   id_agendamento int [pk]
   id_cliente int [not null]
   id_funcionario int [not null]
-  data_hora_inicio datetime
-  duracao_prevista int 
-  status status_agendamento
+  data_hora_inicio datetime [not null]
+  duracao_prevista int [not null]
+  status status_agendamento [not null]
 }
 
 // solicita

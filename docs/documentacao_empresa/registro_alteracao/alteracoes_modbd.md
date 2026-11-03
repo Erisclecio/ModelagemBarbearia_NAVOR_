@@ -18,6 +18,6 @@ As mudanças buscam melhorar a representação dos relacionamentos, a integridad
 
 ## Considerações
 
-As alterações preservam a caracterização e as regras de negócio definidas para a NAVØR. Este documento registra **decisões de modelagem**; ele não indica que o banco de dados ou o ERP já tenham sido implementados.
+As alterações realizadas preservam a caracterização da NAVØR e as regras de negócio estabelecidas, aprimorando a integridade dos dados e a rastreabilidade das operações.
 
-A conversão para o modelo lógico, a demonstração da 1FN, 2FN e 3FN e a implementação em SQL serão documentadas separadamente, conforme o Manual da Entrega Final.
+    As decisões de modelagem foram incorporadas ao modelo lógico relacional e à implementação física em Microsoft SQL Server. A documentação da normalização, os diagramas e os scripts SQL estão disponíveis no repositório do projeto

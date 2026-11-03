@@ -62,5 +62,5 @@ As alterações mantiveram os processos e as regras de negócio definidos para a
 
 ## 5. Arquivos relacionados
 
-- [Diagrama do modelo lógico](../diagramas/Modelo_Relacional.svg)
+- [Diagrama do modelo lógico](../diagramas/modelo_logico.svg)
 

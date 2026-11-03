@@ -58,7 +58,7 @@ Também foi revisada a tabela `CONCILIACAO_FINANCEIRA`. O atributo `diferenca_va
 | Novas tabelas | `PESSOA_TELEFONE` e `FORNECEDOR_TELEFONE` |
 | Atributo derivado retirado | `CONCILIACAO_FINANCEIRA.diferenca_valor` |
 
-As alterações mantiveram os processos e as regras de negócio definidos para a NAVØR. A definição detalhada das restrições de integridade e os testes SQL fazem parte das próximas etapas do projeto.
+As alterações preservaram os processos e as regras de negócio da NAVØR. As restrições de integridade foram definidas na implementação física, enquanto os scripts de validação e testes estão disponíveis no repositório para execução e conferência dos resultados.
 
 ## 5. Arquivos relacionados
 

@@ -55,7 +55,7 @@ Table USUARIO {
   id_perfil int [not null]
   login varchar(12) [unique, not null]
   senha varchar(255) [not null]
-  status status_usuario
+  status status_usuario [not null]
 }
 
 
@@ -107,11 +107,11 @@ Enum situacao_produto{
 
 Table PRODUTO {
   id_produto int [pk]
-  nome varchar(50)
-  descricao text
-  preco_venda decimal(10,2)
-  estoque_minimo int
-  situacao situacao_produto
+  nome varchar(50) [not null]
+  descricao text [not null]
+  preco_venda decimal(10,2) [not null]
+  estoque_minimo int [not null]
+  situacao situacao_produto [not null]
 }
 
 Enum status_fornecedor {
@@ -124,11 +124,11 @@ Enum documento_fornecedor {
 }
 Table FORNECEDOR {
   id_fornecedor int [pk]
-  tipo_documento documento_fornecedor
-  numero_documento varchar(14) [unique]
-  nome varchar(120)
-  email varchar(120)
-  status status_fornecedor
+  tipo_documento documento_fornecedor [not null]
+  numero_documento varchar(14) [unique, not null]
+  nome varchar(120) [not null]
+  email varchar(120) [not null]
+  status status_fornecedor [not null]
 }
 
 Table FORNECEDOR_TELEFONE {
@@ -169,8 +169,8 @@ Table ATENDIMENTO {
   id_agendamento int [unique]
   id_cliente int [not null]
   id_funcionario int [not null]
-  data_hora_atendimento datetime
-  valor_total decimal(10,2)
+  data_hora_atendimento datetime [not null]
+  valor_total decimal(10,2) [not null]
 }
 
 // origina
@@ -183,8 +183,8 @@ Ref: ATENDIMENTO.id_funcionario ?> FUNCIONARIO.id_funcionario
 Table VENDA {
   id_venda int [pk]
   id_cliente int [not null]
-  data_hora_venda datetime
-  valor_total decimal(10,2)
+  data_hora_venda datetime [not null]
+  valor_total decimal(10,2) [not null]
 }
 // efetua_compra
 Ref: VENDA.id_cliente ?> CLIENTE.id_cliente
@@ -199,9 +199,9 @@ Enum status_compra{
 Table COMPRA {
   id_compra int [pk]
   id_fornecedor int [not null]
-  data_compra date
-  situacao_recebimento status_compra
-  valor_total decimal(10,2)
+  data_compra date [not null]
+  situacao_recebimento status_compra [not null]
+  valor_total decimal(10,2) [not null]
 }
 // supre
 Ref: COMPRA.id_fornecedor ?> FORNECEDOR.id_fornecedor
@@ -217,11 +217,11 @@ Table PAGAMENTO {
   id_pagamento int [pk]
   id_conta_receber int [not null]
   id_forma_pagamento int [not null]
-  valor decimal(10,2)
-  situacao_pagamento status_pagamento
+  valor decimal(10,2) [not null]
+  situacao_pagamento status_pagamento [not null]
   data_hora_confirmacao datetime
   data_hora_estorno datetime
-  data_hora_pagamento datetime
+  data_hora_pagamento datetime [not null]
 }
 
 // utiliza
@@ -235,8 +235,8 @@ Enum status_forma_pagamento{
 }
 Table FORMA_PAGAMENTO {
   id_forma_pagamento int [pk]
-  nome varchar(30) [unique]
-  situacao status_forma_pagamento
+  nome varchar(30) [unique, not null]
+  situacao status_forma_pagamento [not null]
 }
 
 Enum tipos_movimentacao {
@@ -298,10 +298,10 @@ Enum dias_trabalho{
 
 Table JORNADA_FUNCIONARIO {
   id_funcionario int [not null]
-  dia_semana dias_trabalho
-  hora_inicio time
-  hora_fim time
-  tipo_periodo tipo_periodo_jornada
+  dia_semana dias_trabalho [not null]
+  hora_inicio time [not null]
+  hora_fim time [not null]
+  tipo_periodo tipo_periodo_jornada [not null]
 
   indexes {
     (id_funcionario, dia_semana, hora_inicio) [pk]
@@ -320,9 +320,9 @@ Enum operacoes{
 Table REGISTRO_AUDITORIA {
   id_registro int [pk]
   id_usuario int [not null]
-  data_hora_auditoria datetime
-  operacao operacoes
-  objeto_afetado VARCHAR(30)
+  data_hora_auditoria datetime [not null]
+  operacao operacoes [not null]
+  objeto_afetado VARCHAR(30) [not null]
 }
 
 // gera
@@ -332,7 +332,7 @@ Table ITEM_ATENDIMENTO {
   id_item_atendimento int [pk]
   id_atendimento int [not null]
   id_servico int [not null]
-  preco_praticado decimal(10,2)
+  preco_praticado decimal(10,2) [not null]
 }
 // detalha
 Ref: ITEM_ATENDIMENTO.id_atendimento > ATENDIMENTO.id_atendimento
@@ -343,8 +343,8 @@ Ref: ITEM_ATENDIMENTO.id_servico ?> SERVICO.id_servico
 Table ITEM_VENDA {
   id_venda int [not null]
   id_produto int [not null]
-  qtd_venda int
-  preco_unitario_praticado decimal(10,2)
+  qtd_venda int [not null]
+  preco_unitario_praticado decimal(10,2) [not null]
   indexes {
     (id_venda, id_produto) [pk]
   }
@@ -358,9 +358,9 @@ Ref: ITEM_VENDA.id_produto ?> PRODUTO.id_produto
 Table ITEM_COMPRA {
   id_compra int [not null]
   id_produto int [not null]
-  qtd_compra int
-  qtd_recebida int
-  custo_unitario decimal(10,2)
+  qtd_compra int [not null]
+  qtd_recebida int [not null]
+  custo_unitario decimal(10,2) [not null]
 
   indexes {
     (id_compra, id_produto) [pk]
@@ -374,10 +374,10 @@ Ref: ITEM_COMPRA.id_produto ?> PRODUTO.id_produto
 Table COMISSAO {
   id_comissao int [pk]
   id_item_atendimento int [unique, not null]
-  percentual_aplicado decimal(10,2)
-  valor_comissao decimal(10,2)
-  situacao_comissao varchar(20)
-  mes_ano_comissao varchar(7)
+  percentual_aplicado decimal(10,2) [not null]
+  valor_comissao decimal(10,2) [not null]
+  situacao_comissao varchar(20) [not null]
+  mes_ano_comissao varchar(7) [not null]
 }
 // produz_comissao
 Ref: ITEM_ATENDIMENTO.id_item_atendimento -? COMISSAO.id_item_atendimento
@@ -385,7 +385,7 @@ Ref: ITEM_ATENDIMENTO.id_item_atendimento -? COMISSAO.id_item_atendimento
 Table AGENDAMENTO_SERVICO {
   id_agendamento int [not null]
   id_servico int [not null]
-  qtd_servico int
+  qtd_servico int [not null]
 
   indexes {
     (id_agendamento, id_servico) [pk]
@@ -412,7 +412,7 @@ Ref: FUNCIONARIO_SERVICO.id_servico ?> SERVICO.id_servico
 Table ATENDIMENTO_PRODUTO {
   id_atendimento int [not null]
   id_produto int [not null]
-  qtd_consumida int
+  qtd_consumida int [not null]
 
   indexes {
     (id_atendimento, id_produto) [pk]
@@ -427,11 +427,11 @@ Table CONTA_RECEBER {
   id_conta_receber int [pk]
   id_atendimento int [unique]
   id_venda int [unique]
-  valor_original decimal(10,2)
-  data_emissao date
-  data_vencimento date
-  situacao situacao_conta
-  saldo_pendente decimal(10,2) 
+  valor_original decimal(10,2) [not null]
+  data_emissao date [not null]
+  data_vencimento date [not null]
+  situacao situacao_conta [not null]
+  saldo_pendente decimal(10,2) [not null]
 
 }
 
@@ -451,11 +451,11 @@ Enum situacao_conta{
 Table CONTA_PAGAR {
   id_conta_pagar int [pk]
   id_compra int [unique, not null]
-  valor_original_compra decimal(10,2)
-  data_emissao_compra date
-  data_vencimento_compra date
-  situacao_compra situacao_conta
-  saldo_pendente_compra decimal(10,2)
+  valor_original_compra decimal(10,2) [not null]
+  data_emissao_compra date [not null]
+  data_vencimento_compra date [not null]
+  situacao_compra situacao_conta [not null]
+  saldo_pendente_compra decimal(10,2) [not null]
 }
 
 // estabelece_obrigacao
@@ -479,22 +479,19 @@ Enum situacao_pagamento_fornecedor {
 Table PAGAMENTO_FORNECEDOR {
   id_pagamento_fornecedor int [pk]
   id_conta_pagar int [not null]
-  valor_pago decimal(10,2)
-  data_hora_pagamento datetime
-  meio_pagamento meio_pagamento_fornecedor
-  situacao_pagamento situacao_pagamento_fornecedor
+  valor_pago decimal(10,2) [not null]
+  data_hora_pagamento datetime [not null]
+  meio_pagamento meio_pagamento_fornecedor [not null]
+  situacao_pagamento situacao_pagamento_fornecedor [not null]
   referencia_comprovante text
   data_hora_confirmacao datetime
 }
-
 // registra_pagamento_fornecedor
 Ref: PAGAMENTO_FORNECEDOR.id_conta_pagar ?> CONTA_PAGAR.id_conta_pagar
-
 Enum tipo_mov_caixa{
   ENTRADA
   SAIDA
 }
-
 
 Table MOVIMENTACAO_CAIXA {
   id_movimentacao_caixa int [pk]
@@ -526,10 +523,10 @@ Table CONCILIACAO_FINANCEIRA {
   id_conciliacao int [pk]
   id_movimentacao_caixa int [not null]
   id_usuario int [not null]
-  data_conciliacao date
-  referencia_conciliacao varchar(100)
-  valor_conferido_conciliacao decimal(10,2)
-  situacao_conciliacao situacao_conciliacao
+  data_conciliacao date [not null]
+  referencia_conciliacao varchar(100) [not null]
+  valor_conferido_conciliacao decimal(10,2) [not null]
+  situacao_conciliacao situacao_conciliacao [not null]
   observacao_divergencia text
 }
 

@@ -4,7 +4,7 @@ Este registro atende à **Etapa 17 do Manual da Entrega Final**: os prompts usad
 
 ## Ferramenta utilizada
 
-Claude (Anthropic), usado como assistente para montar o script `02_massa_dados.sql` a partir do DER, do modelo lógico, do dicionário de dados e do script `01_criacao_banco.sql` do projeto.
+Claude (Anthropic), usado como assistente para montar o script `2-Massa_de_dados.sql` a partir do DER, do modelo lógico, do dicionário de dados e do script `1-DDL_Criacao.sql` do projeto.
 
 ## Prompts utilizados
 
@@ -40,7 +40,7 @@ A IA usou apenas dados já definidos no projeto:
 - formato `AAAA-MM` e situações `REGISTRADA` e `EM_APURACAO` para as comissões;
 - testes do documento "Plano de testes da NAVØR" (T01 a T16);
 - indicadores e regras do NAVØR CLUB do documento "Inovação e Valor Agregado";
-- estrutura e restrições do `01_criacao_banco.sql`.
+- estrutura e restrições do `1-DDL_Criacao.sql`.
 
 Os valores que a documentação não trazia foram **propostos pela IA e validados pelo grupo**: preços, durações dos demais serviços, produtos, fornecedores, nomes fictícios e volume de registros.
 
@@ -48,18 +48,19 @@ Os valores que a documentação não trazia foram **propostos pela IA e validado
 
 Encaixe sem agendamento, agendamento cancelado, horário cancelado reaproveitado, serviço adicional e serviço trocado no atendimento (RN07), reajuste de preço com valor congelado no histórico (RN08), pessoa que é cliente e funcionário (RN23), profissional não comissionado, pagamento dividido, cartão recusado, pagamento pendente, estorno de atendimento e de venda, comissão em apuração, compra entregue, parcial, recusada e em trânsito, perda e ajuste de estoque, produtos abaixo do estoque mínimo, conciliação divergente e pendente.
 
-## Validação realizada
+## Verificações de integridade e testes
 
-Seguindo o ciclo **GERAR → TESTAR → VALIDAR → CORRIGIR** do manual:
+Os scripts foram organizados para permitir a conferência da massa de dados e das restrições implementadas:
 
-- a Parte 2.1 do script confere 35 regras (FKs, totais, comissões, agenda, estoque e financeiro) e deve mostrar **0 problemas** em todas;
-- a Parte 2.2 mostra as evidências do Plano de Testes;
-- a Parte 2.3 tenta gravar dados inválidos e deve mostrar **"OK: bloqueado"** em todas as tentativas.
+- `3-Validacao_integridade.sql`: contém 35 verificações de consistência.
+- `4-Evidencias_plano_testes.sql`: reúne consultas relacionadas aos cenários do plano de testes.
+- `5-Testes_restricoes.sql`: realiza operações controladas para verificar o bloqueio de registros inválidos.
+- `6-Aplicacoes_ia.sql`: apresenta consultas analíticas para exploração dos dados.
 
-Conferência do grupo após rodar no SQL Server:
+### Conferência no SQL Server
 
-- [ ] o script executa sem erros após o `01_criacao_banco.sql`;
-- [ ] todas as verificações da Parte 2.1 aparecem como OK;
-- [ ] todos os testes da Parte 2.3 aparecem como "OK: bloqueado";
-- [ ] preços, durações e produtos fazem sentido para a NAVØR;
-- [ ] os resultados da Parte 3 (IA) foram lidos e fazem sentido para o negócio.
+- [ ] Executar os scripts na sequência documentada.
+- [ ] Confirmar que as 35 verificações apresentam zero problemas.
+- [ ] Conferir o resultado dos testes de restrições.
+- [ ] Validar a coerência dos dados demonstrativos.
+- [ ] Analisar os resultados das consultas gerenciais e analíticas.

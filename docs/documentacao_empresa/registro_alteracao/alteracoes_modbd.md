@@ -20,4 +20,4 @@ As mudanças buscam melhorar a representação dos relacionamentos, a integridad
 
 As alterações realizadas preservam a caracterização da NAVØR e as regras de negócio estabelecidas, aprimorando a integridade dos dados e a rastreabilidade das operações.
 
-    As decisões de modelagem foram incorporadas ao modelo lógico relacional e à implementação física em Microsoft SQL Server. A documentação da normalização, os diagramas e os scripts SQL estão disponíveis no repositório do projeto
+As decisões de modelagem foram incorporadas ao modelo lógico relacional e à implementação física em Microsoft SQL Server. A documentação da normalização, os diagramas e os scripts SQL estão disponíveis no repositório do projeto.
